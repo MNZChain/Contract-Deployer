@@ -188,8 +188,7 @@ contract BridgedWNETZ is ERC20, ERC20Permit, MessageClient, ContractMetadata {
      */
     function takeFee(uint256 amount) internal returns (uint256 afterFee) {
         uint256 fee = calculateFee(amount);
-        (bool success, ) = payable(MESSAGE_OWNER).call{value: fee}("");
-        require(success, "Transfer failed");
+        _mint(MESSAGE_OWNER, fee);
         afterFee = amount - fee;
         emit FeePaid(fee);
     }
