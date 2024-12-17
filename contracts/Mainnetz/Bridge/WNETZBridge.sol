@@ -126,6 +126,15 @@ contract WNETZBridge is MessageClient, FeeReceiver, ContractMetadata {
     }
 
     /**
+     * @notice Sets additional gas fee required when bridging.
+     * @param newFee The fee amount to charge for gas.
+     */
+    function setGasFee(uint256 newFee) external onlyMessageOwner {
+        GAS_FEE = newFee;
+        emit GasFeeChanged(newFee);
+    }
+
+    /**
      * @notice Changes the fee numerator.
      * @param newFee The new fee numerator.
      */
