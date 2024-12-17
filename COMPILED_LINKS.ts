@@ -1,8 +1,8 @@
 export const BRIDGED_WNETZ_DEPLOY =
-  "https://thirdweb.com/contracts/deploy/QmaMLsZfSn9VmX3RB3oKRaVkhQPkyPrLJBcyXoFoEkzS5S";
+  "https://thirdweb.com/contracts/deploy/QmbExtJBMdoNiAEWn4WaV2g1kq3jWsVxV3F265hQsVUTgU";
 
 export const WNETZ_BRIDGE_DEPLOY =
-  "https://thirdweb.com/contracts/deploy/QmWfHYmbQa2ngzr5yrseQxzrXG5mn1gY1QdjP6nXao9MvL";
+  "https://thirdweb.com/contracts/deploy/QmTuQdNVwqqkxFP3ksaZZoeRfwKDZq67R4mdVRYiaVjpHr";
 
 export const FAUCET_DEPLOY =
   "https://thirdweb.com/contracts/deploy/QmcrkRsPAz8zXsNDj7tLhsXR2dbZXttpadLd59oE1LhgTT";
