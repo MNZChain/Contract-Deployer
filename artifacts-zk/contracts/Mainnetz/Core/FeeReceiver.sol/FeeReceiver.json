@@ -1,0 +1,24 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "FeeReceiver",
+  "sourceName": "contracts/Mainnetz/Core/FeeReceiver.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "feeSetterContract",
+      "outputs": [
+        {
+          "internalType": "contract FeeReward",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

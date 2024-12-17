@@ -1,0 +1,24 @@
+{
+  "name": "hardhat-javascript-starter",
+  "scripts": {
+    "build": "npx thirdweb@latest detect",
+    "deploy": "node deploy.js",
+    "wnetz": "node wnetz.js",
+    "wnetzbridge": "node wnetzbridge.js",
+    "publish": "npx thirdweb@latest publish"
+  },
+  "devDependencies": {
+    "@matterlabs/hardhat-zksync-solc": "^0.3.17",
+    "hardhat": "^2.22.17"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
+    "@thirdweb-dev/contracts": "^3.8.0",
+    "@vialabs-io/node-core": "github:VIALabs-io/node-core",
+    "@vialabs-io/npm-contracts": "github:VIALabs-io/npm-contracts",
+    "@vialabs-io/npm-registry": "github:VIALabs-io/npm-registry",
+    "dotenv": "^16.4.7",
+    "thirdweb": "^5.79.0",
+    "zksync-web3": "^0.14.3"
+  }
+}
