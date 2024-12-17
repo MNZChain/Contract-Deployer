@@ -21,6 +21,9 @@ contract WNETZBridge is MessageClient, FeeReceiver, ContractMetadata {
     // Bridge enable/disable status. If false, bridging is not allowed.
     bool public BRIDGE_ENABLED = false;
 
+    // Additional gas fee variable. If set, bridging incurs an additional native charge.
+    uint256 public GAS_FEE = 0;
+
     // Reference to Mainnetz Wrapped NETZ token contract.
     IWTOKEN public WNETZ = IWTOKEN(0x41c515fA7D541bCbDEfB44f0FE2B1629aec140b9);
 
@@ -89,7 +92,9 @@ contract WNETZBridge is MessageClient, FeeReceiver, ContractMetadata {
             WNETZ.deposit{value: msg.value}();
             _amount = msg.value;
         }
-
+        if (GAS_FEE > 0) {
+            _amount -= GAS_FEE;
+        }
         uint256 _afterFee = takeFee(_amount);
         txId = _sendMessage(_destChainId, abi.encode(_recipient, _afterFee));
         emit Outgoing(msg.sender, _recipient, _afterFee);
