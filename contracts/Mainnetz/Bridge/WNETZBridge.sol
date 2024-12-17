@@ -47,6 +47,9 @@ contract WNETZBridge is MessageClient, FeeReceiver, ContractMetadata {
     // Event emitted when a fee is paid during a bridging transaction.
     event FeePaid(uint256 amount);
 
+    // Event emitted when a fee is paid during a bridging transaction.
+    event GasFeeChanged(uint256 amount);
+
     // Event emitted when the bridge status (enabled/disabled) is toggled.
     event BridgeStatusChanged(bool status);
 
