@@ -4,6 +4,8 @@ pragma solidity ^0.8.26;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import "@vialabs-io/npm-contracts/MessageClient.sol";
+import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
+
 import "../../Interfaces/IWTOKEN.sol";
 
 /**
@@ -11,7 +13,7 @@ import "../../Interfaces/IWTOKEN.sol";
  * @dev A cross-chain compatible WNETZ contract that enables cross chain implementation of NETZ.
  * @author https://www.mainnetz.io
  */
-contract BridgedWNETZ is ERC20, ERC20Permit, MessageClient {
+contract BridgedWNETZ is ERC20, ERC20Permit, MessageClient, ContractMetadata {
     // Fee numerator for calculating the transaction fee (e.g., 30 = 0.3% fee).
     uint256 public FEE_NUMERATOR = 100;
 
@@ -190,5 +192,19 @@ contract BridgedWNETZ is ERC20, ERC20Permit, MessageClient {
         require(success, "Transfer failed");
         afterFee = amount - fee;
         emit FeePaid(fee);
+    }
+
+    /**
+     * @notice Checks if the contract URI can be set by the calling address.
+     * @return True if the contract URI can be set, false otherwise.
+     */
+    function _canSetContractURI()
+        internal
+        view
+        virtual
+        override
+        returns (bool)
+    {
+        return msg.sender == MESSAGE_OWNER;
     }
 }

@@ -2,6 +2,7 @@
 pragma solidity ^0.8.26;
 
 import "@vialabs-io/npm-contracts/MessageClient.sol";
+import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
 import "../../Interfaces/IWTOKEN.sol";
 import "../Core/FeeReceiver.sol";
 
@@ -10,7 +11,7 @@ import "../Core/FeeReceiver.sol";
  * @dev A cross-chain bridging contract that enables token transfers with a fee mechanism.
  * @author https://www.mainnetz.io
  */
-contract WNETZBridge is MessageClient, FeeReceiver {
+contract WNETZBridge is MessageClient, FeeReceiver, ContractMetadata {
     // Fee numerator for calculating the transaction fee (e.g., 30 = 0.3% fee).
     uint256 public FEE_NUMERATOR = 100;
 
@@ -181,5 +182,19 @@ contract WNETZBridge is MessageClient, FeeReceiver {
         WNETZ.transfer(MESSAGE_OWNER, fee);
         afterFee = amount - fee;
         emit FeePaid(fee);
+    }
+
+    /**
+     * @notice Checks if the contract URI can be set by the calling address.
+     * @return True if the contract URI can be set, false otherwise.
+     */
+    function _canSetContractURI()
+        internal
+        view
+        virtual
+        override
+        returns (bool)
+    {
+        return msg.sender == MESSAGE_OWNER;
     }
 }
