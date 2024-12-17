@@ -64,7 +64,7 @@ contract BridgedWNETZ is ERC20, ERC20Permit, MessageClient, ContractMetadata {
     /**
      * @dev Contract constructor. Initializes the `MESSAGE_OWNER` as the deploying address.
      */
-    constructor() ERC20("WNETZ", "WNETZ") ERC20Permit("WNETZ") {
+    constructor() ERC20("Wrapped NETZ", "WNETZ") ERC20Permit("Wrapped NETZ") {
         MESSAGE_OWNER = msg.sender;
     }
 
