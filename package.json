@@ -4,6 +4,7 @@
     "build": "npx thirdweb@latest detect",
     "deploy": "node deploy.js",
     "wnetz": "node wnetz.js",
+    "base": "node basewnetz.js",
     "wnetzbridge": "node wnetzbridge.js",
     "publish": "npx thirdweb@latest publish"
   },
@@ -18,6 +19,7 @@
     "@vialabs-io/npm-contracts": "github:VIALabs-io/npm-contracts",
     "@vialabs-io/npm-registry": "github:VIALabs-io/npm-registry",
     "dotenv": "^16.4.7",
+    "fs-extra": "^11.2.0",
     "thirdweb": "^5.79.0",
     "zksync-web3": "^0.14.3"
   }
