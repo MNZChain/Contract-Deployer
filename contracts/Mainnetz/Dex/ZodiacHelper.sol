@@ -341,14 +341,6 @@ contract ZodiacHelper is FeeReceiver {
     INETZFactory public factory =
         INETZFactory(0xFAbC78709e5f99B50EcAdF439621b33c0a05f879);
 
-    function setFactory(address _newFactory) internal {
-        factory = INETZFactory(_newFactory);
-    }
-
-    function setRouter(address _newRouter) internal {
-        router = INETZRouter02(_newRouter);
-    }
-
     function createPair(address token) public returns (address pairAddress) {
         return INETZFactory(router.factory()).createPair(router.WETH(), token);
     }
