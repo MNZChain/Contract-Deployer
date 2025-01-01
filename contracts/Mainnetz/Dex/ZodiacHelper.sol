@@ -360,4 +360,14 @@ contract ZodiacHelper is FeeReceiver {
     function createPair(address token) internal returns (address pairAddress) {
         return INETZFactory(router.factory()).createPair(router.WETH(), token);
     }
+
+   function getPath(address token)
+        public
+        view
+        returns (address[] memory path)
+    {
+        path = new address[](2);
+        path[0] = router.WETH();
+        path[1] = token;
+    }
 }
